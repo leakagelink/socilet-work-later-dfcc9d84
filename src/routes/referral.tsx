@@ -10,7 +10,7 @@ export const Route = createFileRoute("/referral")({
   head: () => ({
     meta: [
       { title: "Referral Program | Socilet" },
-      { name: "description", content: "Refer businesses to Socilet and earn rewards. Track referrals and share via WhatsApp." },
+      { name: "description", content: "Refer businesses to Socilet and earn rewards. Track referrals and share your unique code." },
     ],
   }),
   component: Referral,
@@ -36,14 +36,12 @@ function Referral() {
   const copy = async () => {
     try { await navigator.clipboard.writeText(code); toast.success("Code copied!"); } catch { toast.error("Copy failed"); }
   };
-  const whatsapp = () => {
-    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
   const share = async () => {
     if (navigator.share) {
       try { await navigator.share({ title: "Socilet", text: message, url: shareUrl }); } catch {}
-    } else { whatsapp(); }
+    } else {
+      try { await navigator.clipboard.writeText(message); toast.success("Message copied!"); } catch { toast.error("Share failed"); }
+    }
   };
 
   return (
@@ -65,9 +63,6 @@ function Referral() {
               <Share2 className="mr-1 h-4 w-4" /> Share
             </Button>
           </div>
-          <Button onClick={whatsapp} variant="secondary" className="mt-2 w-full bg-[#25D366] text-white hover:bg-[#1ebe57]">
-            Invite via WhatsApp
-          </Button>
         </Card>
 
         <section className="mt-6">
