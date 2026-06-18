@@ -11,7 +11,7 @@ const rightItems = [
   { to: "/profile", label: "Profile", icon: User },
 ] as const;
 
-const centerItem = { to: "/referral", label: "Refer & Earn", icon: Gift } as const;
+const centerItem = { to: "/referral", label: "Grow", icon: Gift } as const;
 
 function NavLink({
   to,
@@ -111,7 +111,7 @@ export function BottomNav() {
             />
           </Link>
           <span
-            className={`absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] font-bold whitespace-nowrap tracking-wide uppercase transition-colors duration-200 ${
+            className={`absolute bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-bold tracking-widest uppercase transition-colors duration-200 sm:text-[10px] ${
               centerActive ? "text-primary" : "text-muted-foreground"
             }`}
           >
