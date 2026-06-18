@@ -11,7 +11,7 @@ const rightItems = [
   { to: "/profile", label: "Profile", icon: User },
 ] as const;
 
-const centerItem = { to: "/referral", label: "Refer & Earn", icon: Gift } as const;
+const centerItem = { to: "/referral", label: "Grow", icon: Gift } as const;
 
 function NavLink({
   to,
