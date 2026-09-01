@@ -3,7 +3,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.socilet.app',
   appName: 'Socilet',
-  webDir: 'dist/client',
+  webDir: '.output/public',
   server: {
     // TanStack Start is SSR — the mobile app loads the published site in a WebView.
     // For local dev with live-reload, replace url with your preview URL.
